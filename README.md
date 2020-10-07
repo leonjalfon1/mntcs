@@ -9,11 +9,13 @@ It was created to to answer the following use case: Manage filesystem mounts in 
 
 ## How it Works
 
+**mntcs** uses a very simple configuration file to determine which mounts have to be configured. 
+
 <kbd>
   <img src="/docs/basic-architecture.png" width="600">
 </kbd>
 
-**mntcs** uses a very simple configuration file to determine which mounts have to be configured. The "mntcs.conf" file contain a set of source and target paths for each mount like shown below:
+The "mntcs.conf" file contain a set of source and target paths for each mount like shown below:
 
 ```
 10.10.10.10:/source/path /target/path/one
