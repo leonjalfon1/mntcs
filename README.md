@@ -10,7 +10,7 @@ It was created to to answer the following use case: Manage filesystem mounts in 
 ## How it Works
 
 <kbd>
-  <img src="/doc/basic-architecture.png" width="600">
+  <img src="/docs/basic-architecture.png" width="600">
 </kbd>
 
 **mntcs** uses a very simple configuration file to determine which mounts have to be configured. The "mntcs.conf" file contain a set of source and target paths for each mount like shown below:
@@ -28,7 +28,7 @@ Then the **mntcs** binary read the file and configure the specified mounts (it s
 The **mntcs** utility is composed of the following:
 
 <kbd>
-  <img src="/doc/components.png" width="600">
+  <img src="/docs/components.png" width="600">
 </kbd>
 
  - /etc/mntcs/mntcs.conf: configuration file
@@ -41,7 +41,7 @@ The **mntcs** utility is composed of the following:
 **mntcs** can be used on a single server although in that case it would be better to use tools like fstab. However, its true use is to manage the mounts for several servers centrally as shown below.
 
 <kbd>
-  <img src="/doc/centralized-architecture.png" width="600">
+  <img src="/docs/centralized-architecture.png" width="600">
 </kbd>
 
 To achieve this, the "mntcs.conf" file should be mounted into the server and should be managed in a central location.
