@@ -25,11 +25,12 @@ jobs:
       - name: Package
         run: |
           ls -la $GITHUB_WORKSPACE/build/
+          mkdir $GITHUB_WORKSPACE/out
           SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-5)
-          cp $GITHUB_WORKSPACE/build/*.deb $GITHUB_WORKSPACE/build/mntcs-${SHORT_SHA}.deb
+          cp $GITHUB_WORKSPACE/build/*.deb $GITHUB_WORKSPACE/out/mntcs-${SHORT_SHA}.deb
 
       - name: Publish
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: mntcs-${SHORT_SHA}.deb
-          path: build/mntcs-${SHORT_SHA}.deb
+          path: out/
