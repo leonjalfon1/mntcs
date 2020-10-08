@@ -89,12 +89,12 @@ cd ./build
 
 Use mntcs to configure mounts with a configuration file stored in your server (not recommended, instead use fstab that is better)
 
-- Download the mntcs package (or build it from sources)
+- Download the **mntcs** package (or build it from sources)
 ```
 wget https://github.com/leonjalfon1/mntcs/releases/download/v1.0/mntcs.deb
 ```
 
-- Install the package
+- Install the package:
 ```
 sudo apt install ./mntcs.deb
 ```
@@ -104,7 +104,7 @@ sudo apt install ./mntcs.deb
 sudo vi /etc/mntcs/mntcs.conf
 ```
 
-- Test your mounts manually
+- Test your mounts manually:
 ```
 sudo mntcs
 ```
@@ -114,21 +114,21 @@ sudo mntcs
 cat /var/log/mntcs.log
 ```
 
-- Enable the service on boot
+- Enable the service on boot:
 ```
 sudo systemctl enable mntcs
 ```
 
 ### Shared Mode
 
-Use mntcs to configure mounts with a configuration file stored in a central place and mounted to your server
+Use **mntcs** to configure mounts with a configuration file stored in a central place and mounted to your server
 
-- Download the mntcs package (or build it from sources)
+- Download the **mntcs** package (or build it from sources)
 ```
 wget https://github.com/leonjalfon1/mntcs/releases/download/v1.0/mntcs.deb 
 ```
 
-- Install the package
+- Install the package:
 ```
 sudo apt install ./mntcs.deb
 ```
@@ -149,7 +149,7 @@ sudo vi /etc/fstab
 sudo mount /etc/mntcs
 ```
 
-- Use the follwoing command to get the service name of the generated mount:
+- Use the following command to get the service name of the generated mount:
 ```
 systemctl list-units --type=mount | grep mntcs
 ```
@@ -165,19 +165,19 @@ vi /lib/systemd/system/mntcs.service
 After=etc-mntcs.mount
 ```
 
-- Test your mounts manually
+- Test your mounts manually:
 ```
 sudo mntcs
 ```
 
-- Enable the service on boot
+- Enable the service on boot:
 ```
 sudo systemctl enable mntcs
 ```
 
 ## Uninstall
 
-- Delete mntcs using the following command:
+- Delete **mntcs** using the following command:
 
 ```
 sudo apt remove mntcs
