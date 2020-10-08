@@ -54,7 +54,9 @@ In addition, **mntcs** should be configured as a service to run it at boot (and 
 
 - **mntcs** was designed to run only as "root" only so it doesn't support mounts with specific users (at least not for now)
 - The purpose of **mntcs** is not to replace fstab, it was developed to solve a specific use case (without affecting the regular fstab usage)
+- At the moment **mntcs** only uses the "mount" command defaults (does not support specifying flags as -r, -w, etc)
 - **mntcs** was developed and tested for ubuntu
+- Note that even though **mntcs** is currently being used in production it was created for a poc
 
 ## Build & Package
 
