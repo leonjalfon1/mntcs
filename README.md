@@ -1,10 +1,10 @@
 # mntcs
-A Mount Centralized System
 
+![mntcs](https://github.com/leonjalfon1/mntcs/workflows/mntcs/badge.svg)
 
 ## Description
 
-The **mntcs** tool is a utility that allow you to mange filesystem mounts in a centralized and easy way.
+The **mntcs** (Mount Centralized System) tool allows you to mange filesystem mounts in a centralized and easy way.
 It was created to to answer the following use case: Manage filesystem mounts in several ubuntu servers using a single configuration file allowing users without previous knowledge on Linux mounts to use the system.
 
 ## How it Works
@@ -91,7 +91,7 @@ Use mntcs to configure mounts with a configuration file stored in your server (n
 
 - Download the mntcs package (or build it from sources)
 ```
-wget 
+wget https://github.com/leonjalfon1/mntcs/releases/download/v1.0/mntcs.deb
 ```
 
 - Install the package
@@ -125,7 +125,7 @@ Use mntcs to configure mounts with a configuration file stored in a central plac
 
 - Download the mntcs package (or build it from sources)
 ```
-wget 
+wget https://github.com/leonjalfon1/mntcs/releases/download/v1.0/mntcs.deb 
 ```
 
 - Install the package
