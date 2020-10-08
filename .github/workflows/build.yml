@@ -26,7 +26,7 @@ jobs:
         run: |
           ls -la $GITHUB_WORKSPACE/build/
           mkdir $GITHUB_WORKSPACE/out
-          cp $GITHUB_WORKSPACE/build/*.deb $GITHUB_WORKSPACE/out/
+          cp $GITHUB_WORKSPACE/build/*.deb $GITHUB_WORKSPACE/out/mntcs.deb
 
       - name: Publish
         uses: actions/upload-artifact@v2
