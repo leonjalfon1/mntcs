@@ -2,10 +2,13 @@
 
 ![mntcs](https://github.com/leonjalfon1/mntcs/workflows/mntcs/badge.svg)
 
+
 ## Description
 
 **mntcs** (Mount Centralized System) is a tool that allows you to mange filesystem mounts in a centralized and easy way.
 It was created to to answer the following use case: Manage filesystem mounts in several ubuntu servers using a single configuration file allowing users without previous knowledge on Linux mounts to use the system.
+
+<br/>
 
 ## How it Works
 
@@ -25,6 +28,8 @@ dns:/source/path /target/path/three
 
 Then the **mntcs** binary read the file and configure the specified mounts (it should be configured to run as a service in order to run on server boots)
 
+<br/>
+
 ## Components
 
 <kbd>
@@ -38,6 +43,8 @@ Then the **mntcs** binary read the file and configure the specified mounts (it s
  - /var/log/mntcs.log: logs
  - /lib/systemd/system/mntcs.service: service file
 
+<br/>
+
 ## Centralized Configuration
 
 **mntcs** can be used on a single server although in that case it would be better to use tools like fstab. However, its true use is to manage the mounts for several servers centrally as shown below.
@@ -50,6 +57,8 @@ Then the **mntcs** binary read the file and configure the specified mounts (it s
 Then **mntcs** will be able to read the configuration file and set the required mounts.
 In addition, **mntcs** should be configured as a service to run it at boot (and not only manually)
 
+<br/>
+
 ## Considerations & Limitations
 
 - **mntcs** was designed to run only as "root" only so it doesn't support mounts with specific users (at least not for now)
@@ -57,6 +66,8 @@ In addition, **mntcs** should be configured as a service to run it at boot (and 
 - At the moment **mntcs** only uses the "mount" command defaults (does not support specifying flags as -r, -w, etc)
 - **mntcs** was developed and tested for ubuntu
 - Note that even though **mntcs** is currently being used in production it was created for a poc
+
+<br/>
 
 ## Build & Package
 
@@ -82,6 +93,8 @@ sudo apt-get install libc6-dev shc dh-make devscripts
 cd ./build
 ./build.sh
 ```
+
+<br/>
 
 ## Installation
 
@@ -174,6 +187,8 @@ sudo mntcs
 ```
 sudo systemctl enable mntcs
 ```
+
+<br/>
 
 ## Uninstall
 
