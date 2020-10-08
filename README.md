@@ -15,7 +15,7 @@ It was created to to answer the following use case: Manage filesystem mounts in 
   <img src="/docs/basic-architecture.png" width="600">
 </kbd>
 
-The "mntcs.conf" file contain a set of source and target paths for each mount like shown below:
+<br/> The "mntcs.conf" file contain a set of source and target paths for each mount like shown below:
 
 ```
 10.10.10.10:/source/path /target/path/one
@@ -33,6 +33,8 @@ The **mntcs** utility is composed of the following:
   <img src="/docs/components.png" width="600">
 </kbd>
 
+<br/>
+
  - /etc/mntcs/mntcs.conf: configuration file
  - /bin/mntcs: binary
  - /var/log/mntcs.log: logs
@@ -46,7 +48,7 @@ The **mntcs** utility is composed of the following:
   <img src="/docs/centralized-architecture.png" width="600">
 </kbd>
 
-To achieve this, the "mntcs.conf" file should be mounted into the server and should be managed in a central location.
+<br/> To achieve this, the "mntcs.conf" file should be mounted into the server and should be managed in a central location.
 Then **mntcs** will be able to read the configuration file and set the required mounts.
 In addition, **mntcs** should be configured as a service to run it at boot (and not only manually)
 
