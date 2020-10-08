@@ -27,13 +27,11 @@ Then the **mntcs** binary read the file and configure the specified mounts (it s
 
 ## Components
 
-The **mntcs** utility is composed of the following:
-
 <kbd>
   <img src="/docs/components.png" width="600">
 </kbd>
 
-<br/>
+<br/>The **mntcs** utility is composed of the following:
 
  - /etc/mntcs/mntcs.conf: configuration file
  - /bin/mntcs: binary
