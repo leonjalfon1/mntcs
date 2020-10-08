@@ -14,7 +14,7 @@ mkdir ${PROJECT_DIRECTORY}
 
 # Copy files into the project directory
 cp ./mntcs ./${PROJECT_DIRECTORY}/mntcs
-cp ../src/mntcs.config ./${PROJECT_DIRECTORY}/mntcs.config
+cp ../src/mntcs.conf ./${PROJECT_DIRECTORY}/mntcs.conf
 cp ../src/mntcs.service ./${PROJECT_DIRECTORY}/mntcs.service
 
 # Generate Debian package files
@@ -26,7 +26,7 @@ dh_make --indep --createorig --copyright apache -y
 
 # Configure the install file
 echo mntcs bin >> debian/install
-echo mntcs.config etc/mntcs >> debian/install
+echo mntcs.conf etc/mntcs >> debian/install
 echo mntcs.service lib/systemd/system >> debian/install
 
 # Build the package using debuild
