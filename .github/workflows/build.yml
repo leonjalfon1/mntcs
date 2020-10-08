@@ -22,5 +22,13 @@ jobs:
           cd $GITHUB_WORKSPACE/build
           ./build.sh
 
-      - name: List
-        run: ls -la $GITHUB_WORKSPACE/build
+      - name: Package
+        run: |
+          ls -la $GITHUB_WORKSPACE/build/
+          cp $GITHUB_WORKSPACE/build/*.deb $GITHUB_WORKSPACE/build/mntcs.deb
+
+      - name: Publish
+      uses: actions/upload-artifact@v1
+      with:
+        name: mntcs.deb
+        path: $GITHUB_WORKSPACE/build/mntcs.deb
