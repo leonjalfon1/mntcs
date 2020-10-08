@@ -32,5 +32,5 @@ jobs:
       - name: Publish
         uses: actions/upload-artifact@v2
         with:
-          name: mntcs-${SHORT_SHA}.deb
-          path: out/
+          name: mntcs
+          path: out/*
