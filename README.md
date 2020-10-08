@@ -4,7 +4,7 @@
 
 ## Description
 
-The **mntcs** (Mount Centralized System) tool allows you to mange filesystem mounts in a centralized and easy way.
+**mntcs** (Mount Centralized System) is a tool that allows you to mange filesystem mounts in a centralized and easy way.
 It was created to to answer the following use case: Manage filesystem mounts in several ubuntu servers using a single configuration file allowing users without previous knowledge on Linux mounts to use the system.
 
 ## How it Works
