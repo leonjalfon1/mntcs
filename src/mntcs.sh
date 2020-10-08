@@ -21,8 +21,9 @@ do
   # Create an array with the configurations
   config=( $p )
 
-  # Skip line if it's a comment (start with '#')
+  # Skip line if it's empty or if is a comment (start with '#')
   [[ $p =~ ^#.* ]] && continue
+  [ -z "$p" ] && continue
 
   # Write to log/console
   printf "[`date +'%F_%T'`] Processing configuration: index %s\n" "$COUNTER" | tee -a ${log}
