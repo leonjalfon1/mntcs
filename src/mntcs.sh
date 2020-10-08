@@ -5,7 +5,7 @@ log="/var/log/mntcs.log"
 
 # Exit if it's not executed by root
 if [ "$(id -u)" -ne 0 ]; then
-  printf "[`date +'%F_%T'`] Error, This script must be run by root" | tee -a ${log}
+  printf "[`date +'%F_%T'`] Error, This script must be run by root"
   exit 1
 fi
 
