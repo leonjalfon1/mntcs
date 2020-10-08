@@ -9,7 +9,7 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
-printf "\n[`date +'%F_%T'`] Initialing the mounting process" | tee -a ${log}
+printf "\n[`date +'%F_%T'`] Initialing the mounting process\n" | tee -a ${log}
 
 # Initialize the configuration index counter
 COUNTER=0
