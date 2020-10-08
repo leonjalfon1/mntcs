@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount Centralized System (mntcs)
+## Add a mount dependency as below if you use fstab to mount the configuration into the server
+## Use the command "systemctl list-units --type=mount" to get the generated mount service name
+# After=etc-mntcs.mount
+
+[Service]
+ExecStart=/bin/mntcs
+
+[Install]
+WantedBy=multi-user.target
