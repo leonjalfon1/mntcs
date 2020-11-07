@@ -92,10 +92,19 @@ function main
       # create the target path if it doesn't exist
       create-target-path ${config[1]}
 
+      # recreate group to reset users assignments
+      recreate-group "mntcs-$counter"
+
+      # add users assignments to group
+      add-users-to-group ${config[2]}
+
       # mount the target file system
       mount-directory ${config[0]} ${config[1]}
 
-      # Increment the counter value
+      # configure directory permissions for specified users
+      configure-directory-permissions ${config[1]} "mntcs-$counter"
+
+      # increment the counter value
       let counter=counter+1
 
     done <"${CONFIG_FILE}"
@@ -153,6 +162,48 @@ function mount-directory
 
   printf "\n[`date +'%F_%T'`] Mounting the source directory into the target" | tee -a ${LOG_FILE}
   mount $source $target
+}
+
+# recreate group to reset users assignments
+function recreate-group
+{
+  groupname=$1
+
+  if grep -q "^${groupname}:" /etc/group; then
+    printf "\n[`date +'%F_%T'`] User group found, recreating..." | tee -a ${LOG_FILE}
+    groupdel $groupname
+    groupadd $groupname
+  else
+    printf "\n[`date +'%F_%T'`] User group not found, creating..." | tee -a ${LOG_FILE}
+    groupadd $groupname
+  fi
+}
+
+# add users assignments to group
+function add-users-to-group
+{
+  groupname=$1
+  users=$2
+
+  export IFS=","
+  for username in $users; do
+    printf "\n[`date +'%F_%T'`] Adding user to group [$username -> $groupname]" | tee -a ${LOG_FILE}
+    usermod -a -G $groupname $username
+  done
+}
+
+# configure directory permissions for specified group
+function configure-directory-permissions
+{
+  directory=$1
+  groupname=$2
+
+  # set root as the directory owner
+  sudo chown -R root $directory
+
+  # grant access to the mntcs group
+  chgrp $groupname $directory
+  chmod g+rwx $directory
 }
 
 #=====================================================
