@@ -159,10 +159,5 @@ function mount-directory
 # SCRIPT
 #=====================================================
 
-# show help if parameters are not passed, else start script
-if [ -z "$1" ]
-then
-    help
-else
-    main $@
-fi
+# everything start from the main
+main $@
