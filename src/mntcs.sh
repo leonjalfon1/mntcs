@@ -108,7 +108,7 @@ function main
 function validate-root
 {
   if [ "$(id -u)" -ne 0 ]; then
-    printf "[`date +'%F_%T'`] Error, This script must be run by root\n"
+    printf "\n[`date +'%F_%T'`] Error, This script must be run by root"
     exit 1
   fi
 }
@@ -116,7 +116,8 @@ function validate-root
 # print configuration details
 function print-mntcs-config
 {
-  printf "\n[`date +'%F_%T'`] Initialing mntcs (config: ${CONFIG_FILE}, log: ${LOG_FILE})\n" | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] Initialing mntcs (config: ${CONFIG_FILE})" | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] Initialing mntcs (log: ${LOG_FILE})" | tee -a ${LOG_FILE}
 }
 
 # print the mount configuration
@@ -125,9 +126,9 @@ function print-mount-config
   counter=$1
   config=$2
 
-  printf "[`date +'%F_%T'`] Processing configuration, index: %s\n" "$counter" | tee -a ${LOG_FILE}
-  printf "[`date +'%F_%T'`] Source --> %s\n" "${config[0]}" | tee -a ${LOG_FILE}
-  printf "[`date +'%F_%T'`] Target --> %s\n" "${config[1]}" | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] Processing configuration, index: %s" "$counter" | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] Source --> %s" "${config[0]}" | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] Target --> %s" "${config[1]}" | tee -a ${LOG_FILE}
 }
 
 # create the target path if it doesn't exist
@@ -136,9 +137,9 @@ function create-target-path
   targetpath=$1
 
   if [ -d "$targetpath" ]; then
-    printf "[`date +'%F_%T'`] Target directory found\n" | tee -a ${LOG_FILE}
+    printf "\n[`date +'%F_%T'`] Target directory found" | tee -a ${LOG_FILE}
   else
-    printf "[`date +'%F_%T'`] Target directory not found, Creating...\n" | tee -a ${LOG_FILE}
+    printf "\n[`date +'%F_%T'`] Target directory not found, Creating..." | tee -a ${LOG_FILE}
     mkdir -p "$targetpath"
   fi
 }
@@ -149,7 +150,7 @@ function mount-directory
   source=$1
   target=$2
 
-  printf "[`date +'%F_%T'`] Mounting the source directory into the target\n" | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] Mounting the source directory into the target" | tee -a ${LOG_FILE}
   mount $source $target
 }
 
