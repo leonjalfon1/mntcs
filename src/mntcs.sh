@@ -98,7 +98,7 @@ function main
       # Increment the counter value
       let counter=counter+1
 
-    done <"$file"
+    done <"${CONFIG_FILE}"
 
     # return 0 to indicate success
     exit 0
