@@ -96,7 +96,7 @@ function main
       recreate-group "mntcs-$counter"
 
       # add users assignments to group
-      add-users-to-group ${config[2]}
+      add-users-to-group "mntcs-$counter" ${config[2]}
 
       # mount the target file system
       mount-directory ${config[0]} ${config[1]}
