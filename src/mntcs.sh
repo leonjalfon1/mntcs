@@ -116,8 +116,9 @@ function validate-root
 # print configuration details
 function print-mntcs-config
 {
-  printf "\n[`date +'%F_%T'`] Initialing mntcs (config: ${CONFIG_FILE})" | tee -a ${LOG_FILE}
-  printf "\n[`date +'%F_%T'`] Initialing mntcs (log: ${LOG_FILE})" | tee -a ${LOG_FILE}
+  printf "[`date +'%F_%T'`] Initialing mntcs..." | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] config-file: ${CONFIG_FILE})" | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] log-file: ${LOG_FILE})" | tee -a ${LOG_FILE}
 }
 
 # print the mount configuration
