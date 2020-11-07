@@ -80,7 +80,7 @@ function main
     do
 
       # Create an array with the configurations
-      config=( $p )
+      IFS=' ' config=( $p )
 
       # Skip line if it's empty or if is a comment (start with '#')
       [[ $p =~ ^#.* ]] && continue
@@ -197,6 +197,8 @@ function configure-directory-permissions
 {
   directory=$1
   groupname=$2
+
+  printf "\n[`date +'%F_%T'`] Configuring permissions for directory [$directory -> $groupname]" | tee -a ${LOG_FILE}
 
   # set root as the directory owner
   sudo chown -R root $directory
