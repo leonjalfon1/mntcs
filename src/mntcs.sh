@@ -204,8 +204,8 @@ function configure-directory-permissions
   sudo chown -R root $directory
 
   # grant access to the mntcs group
-  chgrp $groupname $directory
-  chmod g+rwx $directory
+  chgrp -R $groupname $directory
+  chmod -R g+rwx $directory
 }
 
 #=====================================================
