@@ -99,7 +99,7 @@ function main
       add-users-to-group "mntcs-$counter" ${config[2]}
 
       # mount the target file system
-      mount-directory ${config[0]} ${config[1]}
+      mount-directory ${config[0]} ${config[1]} ${config[3]}
 
       # configure directory permissions for specified users
       configure-directory-permissions ${config[1]} "mntcs-$counter"
@@ -139,6 +139,8 @@ function print-mount-config
   printf "\n[`date +'%F_%T'`] Processing configuration, index: %s" "$counter" | tee -a ${LOG_FILE}
   printf "\n[`date +'%F_%T'`] Source --> %s" "${config[0]}" | tee -a ${LOG_FILE}
   printf "\n[`date +'%F_%T'`] Target --> %s" "${config[1]}" | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] Users --> %s" "${config[2]}" | tee -a ${LOG_FILE}
+  printf "\n[`date +'%F_%T'`] Credentials --> %s" "${config[3]}" | tee -a ${LOG_FILE}
 }
 
 # create the target path if it doesn't exist
@@ -159,9 +161,10 @@ function mount-directory
 {
   source=$1
   target=$2
+  credentials=$3
 
   printf "\n[`date +'%F_%T'`] Mounting the source directory into the target" | tee -a ${LOG_FILE}
-  mount $source $target
+  mount -t cifs -o credentials=$credentials $source $target
 }
 
 # recreate group to reset users assignments
