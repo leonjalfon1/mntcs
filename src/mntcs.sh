@@ -117,7 +117,7 @@ function main
 function validate-root
 {
   if [ "$(id -u)" -ne 0 ]; then
-    printf "\n[`date +'%F_%T'`] Error, This script must be run by root"
+    printf "[`date +'%F_%T'`] Error, This script must be run by root\n"
     exit 1
   fi
 }
