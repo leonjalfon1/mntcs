@@ -199,6 +199,25 @@ sudo systemctl enable mntcs
 
 <br/>
 
+## Credentials File
+
+- The credentials file has the following format:
+
+```
+username=user
+password=password
+domain=domain
+```
+
+- The file must not be readable by users. To set the correct permissions and ownership, run:
+
+```
+sudo chown root: /etc/mntcs.cred
+sudo chmod 600 /etc/mntcs.cred
+```
+
+<br/>
+
 ## Uninstall
 
 - Delete **mntcs** using the following command:
