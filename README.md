@@ -82,6 +82,8 @@ In addition, **mntcs** should be configured as a service to run it at boot (and 
 
 ```
 sudo add-apt-repository ppa:neurobin/ppa
+```
+```
 sudo apt-get update
 sudo apt-get install libc6-dev shc dh-make devscripts
 ```
@@ -137,6 +139,12 @@ sudo systemctl enable mntcs
 
 Use **mntcs** to configure mounts with a configuration file stored in a central place and mounted to your server
 
+- Install the mount helper program (for example '/sbin/mount.nfs' provided by 'nfs-common' for nfs mounts)
+
+```
+sudo apt install nfs-common
+```
+
 - Download the **mntcs** package (or build it from sources)
 ```
 wget https://github.com/leonjalfon1/mntcs/releases/download/v1.0/mntcs.deb 
@@ -170,7 +178,7 @@ systemctl list-units --type=mount | grep mntcs
 
 - Edit the service file to add the configuration mount as a dependency of the service:
 ```
-vi /lib/systemd/system/mntcs.service
+sudo vi /lib/systemd/system/mntcs.service
 ```
 
 ```
@@ -187,6 +195,25 @@ sudo mntcs
 - Enable the service on boot:
 ```
 sudo systemctl enable mntcs
+```
+
+<br/>
+
+## Credentials File
+
+- The credentials file has the following format:
+
+```
+username=user
+password=password
+domain=domain
+```
+
+- The file must not be readable by users. To set the correct permissions and ownership, run:
+
+```
+sudo chown root: /etc/mntcs.cred
+sudo chmod 600 /etc/mntcs.cred
 ```
 
 <br/>
