@@ -21,12 +21,14 @@ It was created to to answer the following use case: Manage filesystem mounts (us
 <br/> The "mntcs.conf" file contain a set of source and target paths for each mount like shown below:
 
 ```
-10.10.10.10:/source/path /target/path/one linuxuser1,linuxuser2,linuxuser3 /path/to/credentials/file
-servername:/source/path /target/path/two linuxuser1,linuxuser2 /path/to/credentials/file
-dns:/source/path /target/path/three linuxuser2,linuxuser3 /path/to/credentials/file
+//10.10.10.10:/source/path /target/path/one linuxuser1,linuxuser2,linuxuser3 /path/to/credentials/file
+//servername:/source/path /target/path/two linuxuser1,linuxuser2 /path/to/credentials/file
+//dns:/source/path /target/path/three linuxuser2,linuxuser3 /path/to/credentials/file
 ```
 
 Then the **mntcs** binary read the file and configure the specified mounts (it should be configured to run as a service in order to run on server boots)
+
+To grant local permissions for specific users, **mntcs** create a group for each mount and add the relevant users to it. Then it allow access to the mount only for the group members. 
 
 Note that a credential file is used for the mount operation to ensure that only root is able to access and configure the mount permissions
 
