@@ -3,15 +3,13 @@ name: mntcs
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-      # Checks-out the repository under $GITHUB_WORKSPACE
+
       - uses: actions/checkout@v2
 
       - name: Build
@@ -20,16 +18,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libc6-dev shc dh-make devscripts
           cd $GITHUB_WORKSPACE/build
-          ./build.sh
-
-      - name: Package
-        run: |
-          ls -la $GITHUB_WORKSPACE/build/
-          mkdir $GITHUB_WORKSPACE/out
-          cp $GITHUB_WORKSPACE/build/*.deb $GITHUB_WORKSPACE/out/mntcs.deb
+          mkdir /out
+          shc -f /src/mntcs.sh -o /out/mntcs
 
       - name: Publish
         uses: actions/upload-artifact@v2
         with:
           name: mntcs
-          path: out/*
+          path: |
+            src/mntcs.conf
+            src/mntcs.service
+            out/mntcs

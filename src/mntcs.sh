@@ -165,7 +165,7 @@ function mount-directory
   group=$4
 
   printf "\n[`date +'%F_%T'`] Mounting the source directory into the target" | tee -a ${LOG_FILE}
-  mount -t cifs -o credentials=$credentials,gid=$group $source $target
+  mount -t cifs -o credentials=$credentials,gid=$group,file_mode=070,dir_mode=070 $source $target
 }
 
 # recreate group to reset users assignments
