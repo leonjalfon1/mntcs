@@ -14,10 +14,7 @@ jobs:
 
       - name: Build
         run: |
-          sudo apt-get update
-          sudo apt-get install -y shc
-          sudo mkdir /out
-          shc -f /src/mntcs.sh -o /out/mntcs
+          mv $GITHUB_WORKSPACE/src/mntcs.sh $GITHUB_WORKSPACE/src/mntcs
 
       - name: Publish
         uses: actions/upload-artifact@v2
@@ -26,4 +23,4 @@ jobs:
           path: |
             src/mntcs.conf
             src/mntcs.service
-            out/mntcs
+            src/mntcs
